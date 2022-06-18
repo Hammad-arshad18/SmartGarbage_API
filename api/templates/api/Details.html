@@ -1,0 +1,177 @@
+{% extends 'api/Layout.html' %}
+
+{% block title %}
+    Details
+{% endblock %}
+
+{% block body %}
+    <section class="problem-us">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-heading">
+                    <h1>Summary</h1>
+                </div>
+                <div class="problem-text">
+                    <p>
+                        Pakistan, with a population of 227 million, is the world's fifth-most populous country. The heap
+                        of garbage is a common sight in the urban areas of Pakistan. Mismanagement of garbage management
+                        causes soil erosion, air, and water contamination which ultimately creates health and
+                        environmental hazards for the citizens of Pakistan. Diarrhea, pneumonia, and the release of
+                        methane are a few examples of these hazards.
+                        It is, therefore, important to devise an efficient mechanism for waste management. With the help
+                        of modern and emerging technologies, the concerned authorities can reform the process of waste
+                        management in the right direction in Pakistan.
+                        This project proposes a comprehensive solution for waste management. It is a software and
+                        hardware-based solution that will facilitate municipal corporations, residents of urban areas,
+                        and other concerned authorities for the effective management of waste. To reap the benefits of
+                        an integrated system for waste management, this project utilizes the concepts of the Internet of
+                        Things (IoT) and Deep Learning. The system will be a hybrid application (i.e., usage of web and
+                        mobile-based technologies). It will identify the piles of garbage on the streets and the roads.
+                        For this purpose, sensors such as cameras will be installed in the various locations of a city.
+                        These cameras will send images to a web server through microcontrollers where a deep
+                        learning-based trained model will identify the presence of the piles of garbage. After the
+                        identification of the garbage, the system will generate alerts for the authorities and
+                        janitorial staff of that area. It will also send the exact location of the piles of garbage to
+                        the mentioned authorities and the staff. The tasks of the waste collection can be assigned
+                        automatically by identifying the janitorial staff on duty. On the other hand, the head of the
+                        janitorial staff can also assign a task if needed. The system keeps checking the status of the
+                        assigned task (if the piles of garbage are collected or not) after the interval set by the head.
+                        After the task completion, it generates a report. Moreover, the system also keeps an eye on the
+                        performance of the staff in each area. It also identifies the staff of the month and the year
+                        which are selected on the basis of the cleanliness of the assigned area. The residents of an
+                        area can also lodge complaints regarding the cleanliness of their areas through the mobile
+                        application. Consequently, making a contribution to maintaining cleanliness in their city. In
+                        short, the proposed system will bring the stakeholders in one place for achieving the
+                        sustainable goal of a neat and clean Pakistan.
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+<section class="problem-us">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-heading">
+                    <h1>Project Objectives </h1>
+                </div>
+                <div class="problem-text">
+                    <p>
+                        The primary objective is to resolve the issue of improper waste management in Pakistan. For this
+                        purpose, the proposed solution will bring all the stakeholders on one platform where they will
+                        work together for achieving the mentioned goal. The deep-learning-based intelligent algorithm
+                        will help in the identification of heaps of garbage in the city. Moreover, it will also improve
+                        the performance of janitorial staff and the concerned authorities by evaluating their
+                        performance. In addition to this, based on the system-generated reports, the government
+                        officials can perceive the future needs and consequently, plan for waste management in the
+                        future. Resultantly, creating an environment and climate-friendly happy lifestyle for the
+                        citizens of Pakistan.
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section class="problem-us">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-heading">
+                    <h1>Project Implementations Details</h1>
+                </div>
+                <div class="problem-text">
+                    <p>
+                        The proposed system is a hybrid application, i.e., web and mobile-based. It is noteworthy that
+                        the web application is developed using the Django REST framework which is a Python-based web
+                        open-source framework that follows the model-template-views architectural pattern. The mobile
+                        application is a cross-platform application that is developed using Flutter. It is an
+                        open-source UI software development kit created by Google. For database management, MySQL (for
+                        users’ and waste management records), Firebase (for generating alerts), and SQLite (for keeping
+                        the records of tasks and complaints on the mobile users’ side).
+                        In the first phase, the system will keep monitoring the status of the roads and the streets
+                        where cameras are installed. For this purpose, the ESP 32 cameras will be connected to the
+                        webserver through Raspberry Pi 4B microcontrollers. The captured images will be sent to a web
+                        server where the piles of garbage will be identified with the help of a trained deep-learning
+                        model in the second phase. YOLO algorithm is a strong candidate for this purpose. The training
+                        will be carried out using various datasets of the piles of garbage. The trained model will label
+                        the piles of garbage. As soon as the pile of garbage is identified by the system, it will
+                        generate alerts for the authorities through web and mobile applications. The alerts will be
+                        generated for those staff members who will be on duty on that day and time. For this purpose,
+                        the concerned authorities and the janitorial staff will be registered on the system. The head of
+                        each area will be able to enter the working days of the staff. The system will have the
+                        capability to assign the task of collecting the garbage to a staff member who is available in a
+                        nearby area. In addition to this, the head of janitorial staff may also assign the task
+                        manually. The system will keep monitoring the place where the pile of the garbage is identified.
+                        As soon as the area is cleaned, it will change the task status as completed. If the task is not
+                        completed within the stipulated time, the system will send an alert to the higher management of
+                        that area. Moreover, it will keep monitoring the performance of the staff on a monthly and
+                        yearly basis. The system will also consider the number of complaints lodged by the residents of
+                        the area. The waste management authority may assign a staff member to deal with the complaints
+                        of the residents. A comprehensive report regarding the resolution of the complaints will also be
+                        generated for the higher authorities. It will also generate a report regarding the cleanliness
+                        of the area on a monthly and yearly basis.
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="problem-us">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-heading">
+                    <h1>Benefits of the project</h1>
+                </div>
+                <div class="problem-text">
+                    <p>
+                        The development of an efficient waste management system will help the concerned authorities,
+                        staff, and the citizens of Pakistan in adopting a healthy and climate-friendly lifestyle. It
+                        will be achieved by identifying and collecting the piles of garbage in the city. Moreover, it
+                        will improve the efficiency and the performance of the authorities and the staff involved in the
+                        waste management by monitoring and evaluating their record
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="problem-us">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-heading">
+                    <h1>Technical details of final deliverables</h1>
+                </div>
+                <div class="problem-text">
+                    <p>
+                        It will be a hybrid application that will run on the web and mobile platforms. It will make use
+                        of IoT-based technology which will be deployed in the various points of the city.
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+{% endblock %}

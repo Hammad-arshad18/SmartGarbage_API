@@ -1,0 +1,72 @@
+{% extends 'api/Layout.html' %}
+
+{% block title %}
+    Document
+{% endblock %}
+{% load static %}
+{% block body %}
+    <section class="problem-us">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-heading">
+                    <h1>Project Objectives </h1>
+                </div>
+                <div class="problem-text">
+                    <p>
+                        The primary objective is to resolve the issue of improper waste management in Pakistan. For this
+                        purpose, the proposed solution will bring all the stakeholders on one platform where they will
+                        work together for achieving the mentioned goal. The deep-learning-based intelligent algorithm
+                        will help in the identification of heaps of garbage in the city. Moreover, it will also improve
+                        the performance of janitorial staff and the concerned authorities by evaluating their
+                        performance. In addition to this, based on the system-generated reports, the government
+                        officials can perceive the future needs and consequently, plan for waste management in the
+                        future. Resultantly, creating an environment and climate-friendly happy lifestyle for the
+                        citizens of Pakistan.
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="doc-key">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-8 col-10">
+                    {% if confirmation == 'true' %}
+                        <div class="download-btn">
+                            <a href="{% static 'api/files/sgm.pdf' %}" download class="btn btn-success">Download</a>
+                        </div>
+                    {% elif confirmation == 'false' %}
+                        <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
+                            <strong>You Have Entered Wrong Download Key.</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <form method="post" autocomplete="off">
+                            {% csrf_token %}
+                            <label class="form-text" for="key">Enter Private Key</label>
+                            <input type="text" required id="key" name="key" class="form-control" autocomplete="off">
+                            <div class="btn-key">
+                                <button class="btn btn-success">Request</button>
+                            </div>
+                        </form>
+                    {% else %}
+                        <form method="post" autocomplete="off">
+                            {% csrf_token %}
+                            <label class="form-text" for="key">Enter Private Key</label>
+                            <input type="text" required id="key" name="key" class="form-control">
+                            <div class="btn-key">
+                                <button class="btn btn-success">Request</button>
+                            </div>
+                        </form>
+                    {% endif %}
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+

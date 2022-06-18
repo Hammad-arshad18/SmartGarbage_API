@@ -1,0 +1,64 @@
+{% extends 'api/Layout.html' %}
+
+{% block title %}
+    HomePage
+{% endblock %}
+
+
+{% block body %}
+    <section class="banner shadow-sm">
+        <div class="black-div"></div>
+        <div class="text-banner">
+            <h1>smart garbage management for sustainable city life</h1>
+        </div>
+    </section>
+
+
+    <section class="problem-us">
+        <div class="container">
+            <div class="problem-content">
+                <div class="problem-heading">
+                    <h1>Problem Statement</h1>
+                </div>
+                <div class="problem-text">
+                    <p>
+                        One of the biggest problems that municipalities around Pakistan have to deal with is waste
+                        management.
+                        Everyday waste leaves the homes of citizens and then arrives in the designated waste collection
+                        areas,
+                        which in turn have to be transported by waste workers to waste collection and treatment centers.
+                        Unfortunately, in this process, various problems arise which have an impact on the environment
+                        and
+                        on
+                        people’s quality of life, In Pakistan, there are a lot of things that need to solve to make
+                        Pakistan
+                        a
+                        well-developing country. This is one of the major problems that need to be solved. This makes
+                        Pakistan
+                        dirty & unhealthy for our health because that thing creates a lot of diseases which make people
+                        ill.
+                        As
+                        Countries are going smart day by day there is a need to develop the intelligent & most efficient
+                        way
+                        to
+                        solve this problem. For this problem, this system enables Pakistan to become neat & clean. The
+                        System
+                        detects garbage through cameras & generates alerts to the system. The department of Refinement
+                        sends
+                        the
+                        team to the particular area & cleans the whole garbage/garbage from that area.
+                        This makes us safe from many of the major diseases like Malaria & Dengue caused by mosquitos.
+
+                    </p>
+                </div>
+                <div class="problem-learn">
+                    <a href="{% url 'Details' %}" class="btn btn-success"><i class="bi bi-info-circle"></i> Learn
+                        More</a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+{% endblock %}
+
