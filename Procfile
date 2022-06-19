@@ -1,0 +1,1 @@
+web: gunicorn SmartGarbage_API.wsgi
