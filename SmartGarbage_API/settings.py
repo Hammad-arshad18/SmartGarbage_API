@@ -22,8 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7djfyy0=wx7oh4@mywwl5g+4pfmi-gy@11@rytpo9ai^hefaln'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -46,7 +45,11 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
-    'corsheaders'
+    'corsheaders',
+
+    #  WhiteNoise
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 MIDDLEWARE = [
@@ -121,7 +124,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = '/static/api/'
+STATIC_URL = '/static/'
+STATIC_ROOT=os.path.join(BASE_DIR,'/static/')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = 'media/'
 
