@@ -48,8 +48,8 @@ INSTALLED_APPS = [
     'corsheaders',
 
     #  WhiteNoise
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "django.middleware.security.SecurityMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 MIDDLEWARE = [
