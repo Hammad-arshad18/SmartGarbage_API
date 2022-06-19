@@ -56,9 +56,21 @@
                         More</a>
                 </div>
             </div>
-
-
         </div>
+    </section>
+
+
+
+    <section class="contact-us">
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="title" class="form-control">
+            <input type="email" name="email" class="form-control">
+            <textarea name="comment" class="form-control"></textarea>
+            <button class="btn btn-success">Submit</button>
+        </form>
+    </div>
     </section>
 {% endblock %}
 
