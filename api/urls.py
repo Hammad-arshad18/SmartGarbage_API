@@ -1,4 +1,4 @@
-from django.urls import path,include
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -12,6 +12,7 @@ urlpatterns = [
     path('api/contactsapi/', views.ContactApi.as_view()),
     path('api/documentkeyapi/', views.ContactApi.as_view()),
     # Api Authentication
-    path('api/auth/', include('dj_rest_auth.urls')),
-    path('api/auth/registration/', include('dj_rest_auth.registration.urls'))
+    path('api/auth/accounts/', include('dj_rest_auth.urls')),
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('api/auth/account/', include('allauth.urls'))
 ]
