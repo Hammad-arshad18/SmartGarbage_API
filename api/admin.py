@@ -18,3 +18,5 @@ class ContactAdmin(admin.ModelAdmin):
 @admin.register(DocumentKey)
 class DocumentKeyAdmin(admin.ModelAdmin):
     list_display = ['id', 'key']
+
+
