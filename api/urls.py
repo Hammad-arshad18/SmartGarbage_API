@@ -6,6 +6,7 @@ urlpatterns = [
     # path('api/<str:id>', views.api, name="API"),
     path('details/', views.detail, name="Details"),
     path('document/', views.document, name='Document'),
+    path('portfolio/', views.portfolio, name='Portfolio'),
     #     Api EndPoints
     path('api/blogsapi/', views.BlogApiView.as_view()),
     path('api/blogsapi/<int:id>/', views.BlogApiView.as_view()),

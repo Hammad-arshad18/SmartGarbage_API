@@ -1,0 +1,91 @@
+{% extends 'api/Layout.html' %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+{% load static %}
+{% block body %}
+
+    <section class="portfolio">
+        <div class="details-portion shadow">
+            <div class="black-bg"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-md-6 align-self-center order-md-0 order-1">
+                        <div class="details">
+                            <h1>Hammad Arshad</h1>
+                            <p class="text-typing">I'm <span class="typing"></span></p>
+                            <p class="personal-detail">
+                                The objective of my life is to become a successful developer.
+                                I’ve an expertise in complete front-end web development &
+                                backend development. Moreover, The Taste of Development That I
+                                like is Android App Development Using Cross Platform
+                                Technology Flutter/React Native. Watching Movies, Seasons &
+                                Learning New & More Technologies/Languages are My Hobbies
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-10 col-md-6 order-md-1 order-0">
+                        <div class="image-portion">
+                            <img
+                                    src="{% static 'api/images/Hammad.png' %}"
+                                    class="img-fluid"
+                                    alt="Hammad Arshad"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="skills-portion">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <h1>My Career So Far</h1>
+                        <p>
+                            The objective of my life is to become a successful developer.
+                            I’ve an expertise in complete front-end web development &
+                            backend development. Moreover, The Taste of Development That I
+                            like is Android App Development Using Cross Platform Technology
+                            Flutter/React Native. Watching Movies, Seasons & Learning New &
+                            More Technologies/Languages are My Hobbies
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul>
+                            <li>ui design</li>
+                            <li>figma prototyping</li>
+                            <li>Flutter</li>
+                            <li>html/css</li>
+                            <li>bootstrap</li>
+                            <li>django</li>
+                            <li>php</li>
+                            <li>Asp net core</li>
+                            <li>leadership</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascript %}
+
+    <script src="{% static 'api/lib/typed/Typed.js' %}"></script>
+    <script>
+        var typed = new Typed(".typing", {
+            strings: [
+                "Web Developer",
+                "Mobile Application Developer",
+                "Figma Designer",
+                "Freelancer",
+            ],
+            typeSpeed: 70,
+            backSpeed: 45,
+            loop: true,
+        });
+    </script>
+
+{% endblock %}
