@@ -24,42 +24,6 @@
     border-radius: 20px;
 }
 
-.main-body {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-
-.main-body .blackbg {
-    background: url("../images/admin_login.gif");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    filter: blur(3px);
-}
-
-.main-body .login_screen {
-    user-select: none;
-}
-
-.main-body .login_screen .row .col-10 {
-    margin: 20px 0;
-    background-color: white;
-    height: 430px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 10px;
-    padding: 20px 10px;
-    border: 1px solid #c5c4c4;
-}
-
 
 .navbar {
     background-color: white !important;
@@ -336,7 +300,6 @@
 }
 
 .contact-us .row .col-md-6 form .contact-submit button {
-    width: 180px;
     background-color: #34d479 !important;
     color: white;
     border: 2px solid #34d479;
@@ -480,7 +443,6 @@
 }
 
 .doc-key .row .col-md-8 form .btn-key button {
-    width: 180px;
     background-color: #34d479 !important;
     color: white;
     border: 2px solid #34d479;
@@ -614,11 +576,11 @@
     transform: scale(1.09);
 }
 
-#loading{
+#loading {
     width: 100%;
     height: 100vh;
     position: fixed;
-    background: #fff url("../images/loading.gif/") no-repeat center;
+    background: #fff url("../images/loading.gif") no-repeat center;
     z-index: 100000000;
 }
 
