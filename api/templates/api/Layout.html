@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="{% static 'api/css/style.css' %}">
     <link rel="icon" href="{% static 'api/images/Logo.png' %}">
 </head>
-<body>
+<body onload="loadScreen()">
+
+<div id="loading"></div>
+
 
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-md-top shadow-sm">
     <div class="container">
@@ -105,6 +108,13 @@
 
 <script src="{% static 'api/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 {% block javascript %}{% endblock %}
+<script>
+    preloader = document.getElementById("loading");
+
+    function loadScreen() {
+        preloader.style.display = 'none';
+    }
+</script>
 </body>
 </html>
 

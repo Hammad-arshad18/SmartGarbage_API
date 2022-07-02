@@ -36,8 +36,9 @@ def index(request):
 def detail(request):
     return render(request, 'api/Details.html')
 
+
 def portfolio(request):
-    return render(request,'api/Portfolio.html')
+    return render(request, 'api/Portfolio.html')
 
 
 def document(request):
