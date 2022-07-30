@@ -42,7 +42,7 @@ def hammad(request):
     return render(request, 'api/hammad.html')
 
 def wahab(request):
-    return render(request, 'api/hammad.html')
+    return render(request, 'api/wahab.html')
 
 
 def document(request):
