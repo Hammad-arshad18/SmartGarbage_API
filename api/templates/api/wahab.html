@@ -1,0 +1,54 @@
+{% extends 'api/Layout.html' %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+{% load static %}
+{% block body %}
+
+    <section class="wahab-portfolio">
+        <div class="container">
+            <div class="row py-3 justify-content-center">
+                <div class="col-md-4 ">
+                    <div class="card " style="width: 18rem;  ">
+                        <img src="{% static 'api/images/web.jpg' %}" class="card-img-top image-fluid" alt="...">
+                        <div class="card-body">
+                            <p class="card-text justify-content-center ">I am front end developer and i do the front end
+                                development by using boostrap and using Html Css and Java Script </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 ">
+                    <div class="card " style="width: 18rem; height: 20rem; ">
+                        <img {% static 'api/images/and.jpg' %} class="card-img-top image-fluid" alt="...">
+                        <div class="card-body">
+                            <p class="card-text justify-content-center  ">I am android developer and i do the basic app
+                                development by using java and xml by using simple android tags </p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-md-4 ">
+                    <div class="card " style="width: 18rem; height: 20rem;">
+                        <img {% static 'api/images/graphic.jpg' %} class="card-img-top card-imag" alt="...">
+                        <div class="card-body">
+                            <p class="card-text justify-content-center ">I am graphic designer and i do the designing of
+                                brouhers social media adds and web and app designs </p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
+{% block javascript %}
+
+
+{% endblock %}

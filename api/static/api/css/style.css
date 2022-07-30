@@ -585,4 +585,128 @@
 }
 
 
+
+
+/*--------------Wahab CSS--------*/
+.wahab-portfolio .butn{
+    width: 200px !important;
+    border-radius: 20px;
+    height: 35px;
+    background-color: rgb(235, 24, 8);
+    color: aliceblue;
+    font-weight: 100;
+
+}
+.wahab-portfolio .butn:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    color: rgb(255, 251, 251);
+    background-color: black;
+}
+.wahab-portfolio .image{
+    width: 140px;
+    height: 140px;
+}
+.wahab-portfolio button a{
+    text-decoration: none;
+    color: rgb(255, 251, 251);
+}
+.wahab-portfolio .card-imag{
+   height: 60%;
+}
+
+.wahab-portfolio .hov{
+transition:0.4s all;
+}
+
+.wahab-portfolio .card{
+transition:0.4s all;
+}
+
+.wahab-portfolio .hov:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+
+.wahab-portfolio .card:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+ .wahab-portfolio .nav-link {
+     font-size: 20px;
+     color:black;
+}
+.wahab-portfolio .nav-link:hover{
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    color: red;
+}
+.wahab-portfolio .myy{
+    float: left;
+    background-color: aliceblue;
+}
+.wahab-portfolio ul  li{
+    padding: 30px;
+}
+.wahab-portfolio .ins{
+    color: rgba(143, 13, 13, 0.938);
+    font-size: 30px;
+    margin-top: 10px;
+
+}
+.wahab-portfolio .new{
+    color: rgb(218, 9, 9);
+    font-size: 80px;
+}
+.wahab-portfolio .iam{
+    color: rgb(8, 8, 8);
+    font-size: 50px;
+}
+.wahab-portfolio .foter{
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+.wahab-portfolio .aligning{
+    text-align: left;
+}
+.wahab-portfolio .para{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: 100;
+    color: black;
+   text-justify:initial;
+
+}
+.wahab-portfolio .fot{
+    background-color: black;
+    height: 80px;
+}
+.wahab-portfolio .interest{
+    color: rgb(255, 0, 0);
+
+   margin-top: 40px;
+
+   font-size: 40px;
+
+}
+.wahab-portfolio .butn a{
+    text-decoration: none;
+}
+/*--------------Wahab CSS--------*/
+
+
+
+
+
+
+
 /*# sourceMappingURL=style.css.map */

@@ -38,8 +38,11 @@ def detail(request):
     return render(request, 'api/Details.html')
 
 
-def portfolio(request):
-    return render(request, 'api/portfolio.html')
+def hammad(request):
+    return render(request, 'api/hammad.html')
+
+def wahab(request):
+    return render(request, 'api/hammad.html')
 
 
 def document(request):
