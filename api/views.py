@@ -134,10 +134,10 @@ class DocumentKeyApi(APIView):
 
 # Employee Api
 class EmployeeApi(APIView):
-    def get(self, request, id=None, format=None):
+    def get(self, request, uname=None, format=None):
         addEmployees()
         if id is not None:
-            employee = Employee.objects.get(id=id)
+            employee = Employee.objects.get(username=uname)
             serializer = EmployeeSerializer(employee)
             return Response(serializer.data)
         employees = Employee.objects.all()
