@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 from django.contrib.auth.backends import ModelBackend, UserModel
 
@@ -28,7 +29,32 @@ class DocumentKey(models.Model):
 
 
 # class User(AbstractUser):
-#     email=models.EmailField(unique=True)
+#     email = models.EmailField(unique=True)
+
+class Employee(models.Model):
+    username = models.CharField(max_length=200, unique=True)
+    email = models.CharField(max_length=200, blank=True, null=True)
+    tasks = models.IntegerField(default=0, blank=True, null=True)
+
+    def __str__(self):
+        return self.username
+
+
+class TaskStatus(models.Model):
+    task_data = models.CharField(max_length=200)
+    status = models.CharField(max_length=100, null=True, blank=True, default="Pending")
+    username = models.CharField(max_length=200)
+    taskid=models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.status
+
+
+class EmployeeTask(models.Model):
+    task_data = models.CharField(max_length=200)
+    employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, blank=True)
+    # status=models.CharField(max_length=100, null=True, blank=True, default="Pending")
+
 
 
 # class EmailBackend(ModelBackend):

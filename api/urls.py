@@ -12,6 +12,11 @@ urlpatterns = [
     path('api/blogsapi/<int:id>/', views.BlogApiView.as_view()),
     path('api/contactsapi/', views.ContactApi.as_view()),
     path('api/documentkeyapi/', views.ContactApi.as_view()),
+    path('api/employee/',views.EmployeeApi.as_view()),
+    path('api/employee/<int:id>',views.EmployeeApi.as_view()),
+    path('api/tasks/', views.Task.as_view()),
+    path('api/tasks/<str:uname>', views.Task.as_view()),
+
     # Api Authentication
     path('api/auth/accounts/', include('dj_rest_auth.urls')),
     path('api/auth/registration/', include('dj_rest_auth.registration.urls')),

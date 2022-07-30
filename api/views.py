@@ -4,8 +4,9 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.utils import json
 from rest_framework.views import APIView
-from .models import DocumentKey, Blogs, Contact
-from .serializer import BlogSerializer, ContactSerializer, DocumentKeySerializer
+from django.contrib.auth.models import User
+from .models import DocumentKey, Blogs, Contact, EmployeeTask, Employee, TaskStatus
+from .serializer import BlogSerializer, ContactSerializer, DocumentKeySerializer, EmployeeSerializer, TaskSerializer
 import requests
 
 
@@ -126,3 +127,89 @@ class DocumentKeyApi(APIView):
             serializer.save()
             return Response({'msg:Document Key Add'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# Employee Api
+class EmployeeApi(APIView):
+    def get(self, request, id=None, format=None):
+        addEmployees()
+        if id is not None:
+            employee = Employee.objects.get(id=id)
+            serializer = EmployeeSerializer(employee)
+            return Response(serializer.data)
+        employees = Employee.objects.all()
+        serializer = EmployeeSerializer(employees, many=True)
+        return Response(serializer.data)
+
+    def patch(self, request, username=None, format=None):
+        if id is not None:
+            employee = Employee.objects.get(username=username)
+            taskTotal = employee.tasks
+            taskTotal += 1
+            serializer = EmployeeSerializer(employee, request.data, partial=True)
+            if serializer.is_valid():
+                serializer.save()
+                return Response('Employee Update', status=status.HTTP_202_ACCEPTED)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+# To Filter &  Employees From User Main Table
+def addEmployees():
+    allUsers = User.objects.all()
+    allEmployees = Employee.objects.all()
+    for i in allUsers:
+        # print(i.username)
+        if i.is_superuser:
+            continue
+        else:
+            if Employee.objects.count() > 0:
+                try:
+                    getEmployee = Employee.objects.get(username=i.username)
+                except Employee.DoesNotExist:
+                    getEmployee = None
+                    if getEmployee is None:
+                        employeeNew = Employee(username=i.username, email=i.email)
+                        employeeNew.save()
+            else:
+                employeeNew = Employee(username=i.username, email=i.email)
+                employeeNew.save()
+
+
+# Employee Task Api
+
+class Task(APIView):
+    def get(self, request, uname=None, format=None):
+        addTask()
+        if uname is not None:
+            task = TaskStatus.objects.get(username=uname)
+            serializer = TaskSerializer(task)
+            return Response(serializer.data)
+        tasks = TaskStatus.objects.all()
+        serializer = TaskSerializer(tasks, many=True)
+        return Response(serializer.data)
+
+    def patch(self, request, uname=None, format=None):
+        task = TaskStatus.objects.get(username=uname)
+        serializer = TaskSerializer(task, request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Data Update Successfully")
+
+
+def addTask():
+    employeeTask = EmployeeTask.objects.all()
+    taskStatus = TaskStatus.objects.all()
+    for i in employeeTask:
+        # print(i.username)
+        if TaskStatus.objects.count() > 0:
+            try:
+                taskStatus = TaskStatus.objects.get(taskid=i.id)
+            except TaskStatus.DoesNotExist:
+                taskStatus = None
+                if taskStatus is None:
+                    taskNew = TaskStatus(task_data=i.task_data, username=i.employee, taskid=i.id)
+                    taskNew.save()
+        else:
+            # print(i.id)
+            taskNew = TaskStatus(task_data=i.task_data, username=i.employee, taskid=i.id)
+            taskNew.save()
