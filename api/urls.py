@@ -14,7 +14,7 @@ urlpatterns = [
     path('api/contactsapi/', views.ContactApi.as_view()),
     path('api/documentkeyapi/', views.ContactApi.as_view()),
     path('api/employee/',views.EmployeeApi.as_view()),
-    path('api/employee/<int:id>',views.EmployeeApi.as_view()),
+    path('api/employee/<str:uname>',views.EmployeeApi.as_view()),
     path('api/tasks/', views.Task.as_view()),
     path('api/tasks/<str:uname>', views.Task.as_view()),
 
