@@ -138,8 +138,8 @@ class EmployeeApi(APIView):
     def get(self, request, uname=None, format=None):
         addEmployees()
         if uname is not None:
-            employee = Employee.objects.get(username=uname)
-            serializer = EmployeeSerializer(employee)
+            employee = Employee.objects.filter(username=uname)
+            serializer = EmployeeSerializer(employee,many=True)
             return Response(serializer.data)
         employees = Employee.objects.all()
         serializer = EmployeeSerializer(employees, many=True)
@@ -185,8 +185,8 @@ class Task(APIView):
     def get(self, request, uname=None, format=None):
         addTask()
         if uname is not None:
-            task = TaskStatus.objects.get(username=uname)
-            serializer = TaskSerializer(task)
+            task = TaskStatus.objects.filter(username=uname)
+            serializer = TaskSerializer(task, many=True)
             return Response(serializer.data)
         tasks = TaskStatus.objects.all()
         serializer = TaskSerializer(tasks, many=True)
