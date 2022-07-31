@@ -41,6 +41,7 @@ def detail(request):
 def hammad(request):
     return render(request, 'api/hammad.html')
 
+
 def wahab(request):
     return render(request, 'api/wahab.html')
 
@@ -216,3 +217,12 @@ def addTask():
             # print(i.id)
             taskNew = TaskStatus(task_data=i.task_data, username=i.employee, taskid=i.id)
             taskNew.save()
+
+
+# Employee of The Month/Year API
+class EmployeeAward(APIView):
+    def get(self, request, format=None):
+        allEmployees = Employee.objects.order_by('tasks')
+        employee = allEmployees.last()
+        serializer = EmployeeSerializer(employee)
+        return Response(serializer.data)
