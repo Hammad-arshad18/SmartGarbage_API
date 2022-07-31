@@ -145,9 +145,9 @@ class EmployeeApi(APIView):
         serializer = EmployeeSerializer(employees, many=True)
         return Response(serializer.data)
 
-    def patch(self, request, username=None, format=None):
+    def patch(self, request, uname=None, format=None):
         if id is not None:
-            employee = Employee.objects.get(username=username)
+            employee = Employee.objects.get(username=uname)
             taskTotal = employee.tasks
             taskTotal += 1
             serializer = EmployeeSerializer(employee, request.data, partial=True)
