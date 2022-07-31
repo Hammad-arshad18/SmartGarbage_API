@@ -192,19 +192,12 @@ class Task(APIView):
         serializer = TaskSerializer(tasks, many=True)
         return Response(serializer.data)
 
-    def patch(self, request,id=None, uname=None, format=None):
-        if uname is not None:
-            task = TaskStatus.objects.get(username=uname)
-            serializer = TaskSerializer(task, request.data, partial=True)
-            if serializer.is_valid():
-                serializer.save()
-                return Response("Data Update Successfully")
-        if id is not None:
-            task = TaskStatus.objects.get(taskid=id)
-            serializer = TaskSerializer(task, request.data, partial=True)
-            if serializer.is_valid():
-                serializer.save()
-                return Response("Data Update Successfully")
+    def patch(self, request, uname=None, format=None):
+        task = TaskStatus.objects.get(username=uname)
+        serializer = TaskSerializer(task, request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Data Update Successfully")
 
 
 def addTask():

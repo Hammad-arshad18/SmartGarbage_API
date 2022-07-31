@@ -17,7 +17,6 @@ urlpatterns = [
     path('api/employee/<str:uname>',views.EmployeeApi.as_view()),
     path('api/tasks/', views.Task.as_view()),
     path('api/tasks/<str:uname>', views.Task.as_view()),
-    path('api/tasks/<int:id>', views.Task.as_view()),
     path('api/awards/', views.EmployeeAward.as_view()),
 
     # Api Authentication
