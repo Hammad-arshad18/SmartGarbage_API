@@ -224,7 +224,7 @@ class EmployeeAward(APIView):
     def get(self, request, format=None):
         allEmployees = Employee.objects.all()
         tasks = 0
-        employee=allEmployees[0]
+        employee = allEmployees[0]
         for i in allEmployees:
             if i.tasks > tasks:
                 tasks = i.tasks
