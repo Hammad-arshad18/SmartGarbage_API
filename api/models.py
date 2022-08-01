@@ -53,11 +53,12 @@ class TaskStatus(models.Model):
 class EmployeeTask(models.Model):
     task_data = models.CharField(max_length=200)
     employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, blank=True)
-    # status=models.CharField(max_length=100, null=True, blank=True, default="Pending")
+    taskid=models.IntegerField(default=0)
 
 
 class userTasks(models.Model):
     task_data=models.CharField(max_length=200)
+
 
 
 # class EmailBackend(ModelBackend):

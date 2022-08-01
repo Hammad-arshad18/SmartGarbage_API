@@ -155,18 +155,16 @@ def adduserTask():
     userTask = userTasks.objects.all()
     employeeTask = EmployeeTask.objects.all()
     for i in userTask:
-        # print(i.username)
         if EmployeeTask.objects.count() > 0:
             try:
-                employeeTask = EmployeeTask.objects.get(task_data=i.task_data)
+                employeeTask = EmployeeTask.objects.get(taskid=i.id)
             except EmployeeTask.DoesNotExist:
                 employeeTask = None
                 if employeeTask is None:
-                    taskNew = EmployeeTask(task_data=i.task_data)
+                    taskNew = EmployeeTask(task_data=i.task_data, taskid=i.id)
                     taskNew.save()
         else:
-            # print(i.id)
-            taskNew = EmployeeTask(task_data=i.task_data)
+            taskNew = EmployeeTask(task_data=i.task_data, taskid=i.id)
             taskNew.save()
 
 
