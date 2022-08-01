@@ -148,9 +148,10 @@ class EmployeeApi(APIView):
     def patch(self, request, uname=None, format=None):
         if id is not None:
             employee = Employee.objects.get(username=uname)
-            taskTotal = employee.tasks
-            taskTotal += 1
-            serializer = EmployeeSerializer(employee, request.data, partial=True)
+            tasksEmployee=employee.tasks
+            tasksEmployee+=1
+            jsonData={"tasks":tasksEmployee}
+            serializer = EmployeeSerializer(employee, jsonData, partial=True)
             if serializer.is_valid():
                 serializer.save()
                 return Response('Employee Update', status=status.HTTP_202_ACCEPTED)
