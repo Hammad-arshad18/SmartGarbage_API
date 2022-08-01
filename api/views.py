@@ -142,11 +142,11 @@ class AddemployeeTask(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        addEmployeeTask = EmployeeTask(data=request.data)
-        serializer = EmployeeTaskSerializer(addEmployeeTask)
+        serializer = EmployeeTaskSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response("Task Added SuccessFully")
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class EmployeeApi(APIView):
