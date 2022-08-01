@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Blogs, Contact, DocumentKey, Employee, TaskStatus
+from .models import Blogs, Contact, DocumentKey, Employee, TaskStatus,EmployeeTask
 
 
 class BlogSerializer(serializers.ModelSerializer):
@@ -30,3 +30,9 @@ class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = TaskStatus
         fields = '__all__'
+
+
+class EmployeeTaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=EmployeeTask
+        fields='__all__'

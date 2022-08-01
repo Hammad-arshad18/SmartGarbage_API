@@ -6,7 +6,8 @@ from rest_framework.utils import json
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from .models import DocumentKey, Blogs, Contact, EmployeeTask, Employee, TaskStatus
-from .serializer import BlogSerializer, ContactSerializer, DocumentKeySerializer, EmployeeSerializer, TaskSerializer
+from .serializer import BlogSerializer, ContactSerializer, DocumentKeySerializer, EmployeeSerializer, TaskSerializer, \
+    EmployeeTaskSerializer
 import requests
 
 
@@ -134,12 +135,26 @@ class DocumentKeyApi(APIView):
 
 
 # Employee Api
+class AddemployeeTask(APIView):
+    def get(self, request, format=None):
+        getTaskEmployees = EmployeeTask.objects.all()
+        serializer = EmployeeTaskSerializer(getTaskEmployees, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        addEmployeeTask = EmployeeTask(data=request.data)
+        serializer = EmployeeTaskSerializer(addEmployeeTask)
+        if serializer.is_valid():
+            serializer.save()
+            return Response("Task Added SuccessFully")
+
+
 class EmployeeApi(APIView):
     def get(self, request, uname=None, format=None):
         addEmployees()
         if uname is not None:
             employee = Employee.objects.filter(username=uname)
-            serializer = EmployeeSerializer(employee,many=True)
+            serializer = EmployeeSerializer(employee, many=True)
             return Response(serializer.data)
         employees = Employee.objects.all()
         serializer = EmployeeSerializer(employees, many=True)
@@ -148,9 +163,9 @@ class EmployeeApi(APIView):
     def patch(self, request, uname=None, format=None):
         if id is not None:
             employee = Employee.objects.get(username=uname)
-            tasksEmployee=employee.tasks
-            tasksEmployee+=1
-            jsonData={"tasks":tasksEmployee}
+            tasksEmployee = employee.tasks
+            tasksEmployee += 1
+            jsonData = {"tasks": tasksEmployee}
             serializer = EmployeeSerializer(employee, jsonData, partial=True)
             if serializer.is_valid():
                 serializer.save()
