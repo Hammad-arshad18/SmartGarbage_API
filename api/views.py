@@ -257,6 +257,15 @@ def addTask():
 # Employee of The Month/Year API
 class EmployeeAward(APIView):
     def get(self, request, format=None):
-        awardEmployee = Employee.objects.all().order_by('tasks').last()
-        serializer = EmployeeSerializer(awardEmployee)
+        allEmployees = Employee.objects.all()
+        print(allEmployees)
+        tasks = 0
+        awardemp = []
+        employee = allEmployees[0]
+        for i in allEmployees:
+            if i.tasks >= tasks:
+                tasks = i.tasks
+                employee = i
+                awardemp.append(employee)
+        serializer = EmployeeSerializer(awardemp, many=True)
         return Response(serializer.data)
