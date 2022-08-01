@@ -5,7 +5,7 @@ from rest_framework import status
 from rest_framework.utils import json
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
-from .models import DocumentKey, Blogs, Contact, EmployeeTask, Employee, TaskStatus
+from .models import DocumentKey, Blogs, Contact, EmployeeTask, Employee, TaskStatus, userTasks
 from .serializer import BlogSerializer, ContactSerializer, DocumentKeySerializer, EmployeeSerializer, TaskSerializer, \
     EmployeeTaskSerializer
 import requests
@@ -135,18 +135,39 @@ class DocumentKeyApi(APIView):
 
 
 # Employee Api
-class AddemployeeTask(APIView):
+class UserTask(APIView):
     def get(self, request, format=None):
-        getTaskEmployees = EmployeeTask.objects.all()
+        getTaskEmployees = userTasks.objects.all()
         serializer = EmployeeTaskSerializer(getTaskEmployees, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
+        print(request.data)
         serializer = EmployeeTaskSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
+            adduserTask()
             return Response("Task Added SuccessFully")
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+def adduserTask():
+    userTask = userTasks.objects.all()
+    employeeTask = EmployeeTask.objects.all()
+    for i in userTask:
+        # print(i.username)
+        if EmployeeTask.objects.count() > 0:
+            try:
+                employeeTask = EmployeeTask.objects.get(task_data=i.task_data)
+            except EmployeeTask.DoesNotExist:
+                employeeTask = None
+                if employeeTask is None:
+                    taskNew = EmployeeTask(task_data=i.task_data)
+                    taskNew.save()
+        else:
+            # print(i.id)
+            taskNew = EmployeeTask(task_data=i.task_data)
+            taskNew.save()
 
 
 class EmployeeApi(APIView):

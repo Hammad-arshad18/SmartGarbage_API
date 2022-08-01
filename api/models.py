@@ -56,6 +56,9 @@ class EmployeeTask(models.Model):
     # status=models.CharField(max_length=100, null=True, blank=True, default="Pending")
 
 
+class userTasks(models.Model):
+    task_data=models.CharField(max_length=200)
+
 
 # class EmailBackend(ModelBackend):
 #     def authenticate(self, request, username=None, password=None, **kwargs):
