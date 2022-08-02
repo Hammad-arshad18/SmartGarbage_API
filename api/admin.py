@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blogs, Contact, DocumentKey, EmployeeTask, Employee, TaskStatus,userTasks
+from .models import Blogs, Contact, DocumentKey, EmployeeTask, Employee, TaskStatus, userTasks,changePassword
 
 
 # Register your models here.
@@ -20,8 +20,8 @@ class DocumentKeyAdmin(admin.ModelAdmin):
     list_display = ['id', 'key']
 
 
-@admin.register(EmployeeTask)
-class TaskAdmin(admin.ModelAdmin):
+@admin.register(changePassword)
+class changePasswordAdmin(admin.ModelAdmin):
     list_display = ['id', 'task_data', 'employee']
 
 
@@ -38,3 +38,8 @@ class TaskStatusAdmin(admin.ModelAdmin):
 @admin.register(userTasks)
 class userTaskAdmin(admin.ModelAdmin):
     list_display = ['id']
+
+
+@admin.register(userTasks)
+class userTaskAdmin(admin.ModelAdmin):
+    list_display = ['id', 'username', 'email']
