@@ -244,14 +244,17 @@ def addTask():
             try:
                 taskStatus = TaskStatus.objects.get(taskid=i.id)
             except TaskStatus.DoesNotExist:
-                taskStatus = None
-                if taskStatus is None:
-                    taskNew = TaskStatus(task_data=i.task_data, username=i.employee, taskid=i.id)
+                if i.employee is not None:
+                    print(f'Employee : {i.employee}')
+                    usernameEmployee = i.employee
+                    taskNew = TaskStatus(task_data=i.task_data, username=usernameEmployee, taskid=i.id)
                     taskNew.save()
         else:
-            # print(i.id)
-            taskNew = TaskStatus(task_data=i.task_data, username=i.employee, taskid=i.id)
-            taskNew.save()
+            if i.employee is not None:
+                print(f'Employee : {i.employee}')
+                usernameEmployee = i.employee
+                taskNew = TaskStatus(task_data=i.task_data, username=usernameEmployee, taskid=i.id)
+                taskNew.save()
 
 
 # Employee of The Month/Year API
