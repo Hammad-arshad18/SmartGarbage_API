@@ -61,6 +61,12 @@ class userTasks(models.Model):
 
 
 
+class changePassword(models.Model):
+    username = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
+
+
+
 # class EmailBackend(ModelBackend):
 #     def authenticate(self, request, username=None, password=None, **kwargs):
 #         try:

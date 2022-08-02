@@ -5,9 +5,9 @@ from rest_framework import status
 from rest_framework.utils import json
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
-from .models import DocumentKey, Blogs, Contact, EmployeeTask, Employee, TaskStatus, userTasks
+from .models import DocumentKey, Blogs, Contact, EmployeeTask, Employee, TaskStatus, userTasks, changePassword
 from .serializer import BlogSerializer, ContactSerializer, DocumentKeySerializer, EmployeeSerializer, TaskSerializer, \
-    EmployeeTaskSerializer
+    EmployeeTaskSerializer, changePasswordSerializer
 import requests
 
 
@@ -198,7 +198,7 @@ def addEmployees():
     allEmployees = Employee.objects.all()
     for i in allUsers:
         # print(i.username)
-        if i.is_superuser:
+        if i.is_superuser or i.is_staff:
             continue
         else:
             if Employee.objects.count() > 0:
@@ -272,3 +272,17 @@ class EmployeeAward(APIView):
         #         awardemp.append(employee)
         serializer = EmployeeSerializer(allEmployees)
         return Response(serializer.data)
+
+
+class ChangePassword(APIView):
+    def get(self, request, format=None):
+        changePass = changePassword.objects.all()
+        serializer = changePasswordSerializer(changePass, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = changePasswordSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'msg:Change Password Request Added'}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
