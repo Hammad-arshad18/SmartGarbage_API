@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blogs, Contact, DocumentKey, EmployeeTask, Employee, TaskStatus
+from .models import Blogs, Contact, DocumentKey, EmployeeTask, Employee, TaskStatus,userTasks
 
 
 # Register your models here.
@@ -33,3 +33,8 @@ class EmployeeAdmin(admin.ModelAdmin):
 @admin.register(TaskStatus)
 class TaskStatusAdmin(admin.ModelAdmin):
     list_display = ['id', 'username', 'status']
+
+
+@admin.register(userTasks)
+class userTaskAdmin(admin.ModelAdmin):
+    list_display = ['id']
